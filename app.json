@@ -1,5 +1,5 @@
 {
-    "name": "Start on Heroku: Node.js",
+    "name": "Desafio Técnico Frontend Jr. e Node.js",
     "description": "A barebones Node.js app using Express 4",
     "keywords": ["node", "express", "heroku"],
     "image": "heroku/nodejs"

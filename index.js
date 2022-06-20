@@ -7,11 +7,11 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 //Fazer o Node servir os arquivos para o cliente React
-app.use(express.static(path.resolve(__dirname, './frontend/dist')));
+app.use(express.static(path.resolve(__dirname, './frontend/build')));
 
 //Rotas gerenciadas pelo React
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve('./frontend/dist', 'index.html'));
+  res.sendFile(path.resolve('./frontend/build', 'index.html'));
 });
 
 app.listen(PORT, () => {
