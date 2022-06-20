@@ -16,7 +16,7 @@ Este projeto é resultado da solução de um desafio para construir uma aplicaç
 - Axios
 
 ### Hospedagem
-- Ngrok + Node.js
+- Heroku em https://desafiofunds.herokuapp.com/
 - Railway.app em https://desafiofunds.up.railway.app/
 
 
