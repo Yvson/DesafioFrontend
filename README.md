@@ -16,7 +16,7 @@ Este projeto é resultado da solução de um desafio para construir uma aplicaç
 - Axios
 
 ### Hospedagem
-- Heroku com Node.js
+- Ngrok + Node.js
 
 
 ## O Desafio
@@ -33,6 +33,6 @@ Desenvolver um aplicativo web utilizando React que disponibiliza uma lista conte
 
 ## Arquitetura da Aplicação
 
-
+![Arquitetura](https://github.com/Yvson/VBIDesafio/blob/main/arquitetura.png)
 
 [Anbima FEED]: <https://feed.anbima.com.br/>
