@@ -5,7 +5,7 @@ import {
 } from "../slice/fundsSlice";
 import { setLoadingOn, setLoadingOff, setLoadingFundInfoOn, setLoadingFundInfoOff } from '../slice/uiSlice';
 import { LOAD_FUNDS, LOAD_FUND_INFO } from "../action/funds";
-import api from '../../services/api'
+import axios from "axios";
 
 
 export const loadFundsFlow = (store:any) => (next:any) => async (action:any) => {
@@ -14,8 +14,8 @@ export const loadFundsFlow = (store:any) => (next:any) => async (action:any) => 
 
         try {
             store.dispatch(setLoadingOn({loading: true}));
-            const funds = await api.getAllFunds();
-            store.dispatch(loadFundsSuccess({allFunds: funds}));
+            const funds = await axios.get('/api/funds');
+            store.dispatch(loadFundsSuccess({allFunds: funds.data}));
             store.dispatch(setLoadingOff({loading: false}));
         } catch (error:any) {
             store.dispatch(loadFundsFailure({error: error}));
@@ -24,8 +24,8 @@ export const loadFundsFlow = (store:any) => (next:any) => async (action:any) => 
 
         try {
             store.dispatch(setLoadingFundInfoOn({loading: true}));
-            const fundInfo = await api.getFundById(action.payload.fundId);
-            store.dispatch(loadFundInfoSuccess({fundInfo: fundInfo}));
+            const fundInfo = await axios.get(`/api/funds/${action.payload.fundId}`);
+            store.dispatch(loadFundInfoSuccess({fundInfo: fundInfo.data}));
             store.dispatch(setLoadingFundInfoOff({loading: false}));
         } catch (error:any) {
             store.dispatch(loadFundsFailure({error: error}));

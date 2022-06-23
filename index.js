@@ -1,16 +1,29 @@
+const { getAllFunds, getFundById, getHistoricalDataFundById } = require('./services/api/funds');
+
 const path = require('path');
 const express = require("express");
-const dotenv = require('dotenv');
-dotenv.config();
+
 
 const PORT = process.env.PORT || 5000;
 
 const app = express();
 
-//Fazer o Node servir os arquivos para o cliente React
+// Fazer o Node servir os arquivos para o cliente React
 app.use(express.static(path.resolve(__dirname, './frontend/build')));
 
-//Rotas gerenciadas pelo React
+// Rotas da API
+app.get('/api/funds', async (req, res) => {
+  let funds = await getAllFunds();
+  return res.json(funds);
+});
+
+app.get('/api/funds/:fundId', async (req, res) => {
+  let fund = await getFundById(req.params.fundId);
+  return res.json(fund);
+});
+
+
+// Rotas gerenciadas pelo React
 app.get('*', (req, res) => {
   res.sendFile(path.resolve('./frontend/build', 'index.html'));
 });
@@ -18,3 +31,4 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor ativo na porta ${PORT}`);
 });
+

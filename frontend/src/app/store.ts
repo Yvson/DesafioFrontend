@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-import api from '../services';
 import fundsReducer from './slice/fundsSlice';
 import uiReducer from './slice/uiSlice';
 import { pageLoadedFlow } from './middleware/ui';
