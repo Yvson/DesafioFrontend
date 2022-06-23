@@ -1,2 +1,2 @@
-export const CLIENT_ID = 'F3aAaKiiDx2W';
-export const CLIENT_SECRET = '9INKfOSJIBpU';
+export const CLIENT_ID = process.env.CLIENT_ID;
+export const CLIENT_SECRET = process.env.CLIENT_SECRET;
