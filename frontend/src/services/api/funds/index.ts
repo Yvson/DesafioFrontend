@@ -1,4 +1,4 @@
-import instanceAxios from '../config';
+import { instanceAxios } from '../config';
 
 
 
