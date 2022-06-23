@@ -17,8 +17,3 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor ativo na porta ${PORT}`);
 });
-
-const ID = process.env.CLIENT_ID;
-const SECRET = process.env.CLIENT_SECRET;
-console.log(ID);
-console.log(SECRET);
