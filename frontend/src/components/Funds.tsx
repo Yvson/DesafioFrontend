@@ -12,7 +12,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { pageLoaded, setLoadingOn } from '../app/slice/uiSlice';
+import { pageFundsLoaded } from '../app/slice/uiSlice';
 
 // Utils
 import { formatFunds } from '../utils/fundsUtils';
@@ -35,7 +35,7 @@ export default function Funds() {
     const loading = useSelector((state:any) => state.ui.loading);
     
     useEffect(() => {
-      dispatch(pageLoaded({}));
+      dispatch(pageFundsLoaded({}));
     }, [dispatch]);
 
     // Navigate - React Router

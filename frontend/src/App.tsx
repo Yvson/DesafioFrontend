@@ -14,6 +14,7 @@ import PageNotFound from './components/PageNotFound';
  
 // Material UI
 import { Box } from '@mui/material';
+import HistoricalDataNoFund from './components/HistoricalDataNoFund';
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
             <Route path=":fundId" element={<Information />} />
           </Route>
           <Route path="historical-data">
-            <Route path="" element={<HistoricalData />} />
+            <Route path="" element={<HistoricalDataNoFund />} />
             <Route path=":fundId" element={<HistoricalData />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />

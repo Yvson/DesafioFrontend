@@ -60,7 +60,7 @@ const getFundById = async (id) => {
 
 
 const getHistoricalDataFundById = async (id) => {
-    const response = await axios.instanceAxios.get(`feed/fundos/v1/fundos-estruturados/${id}/serie-historica`);
+    const response = await instanceAxios.get(`feed/fundos/v1/fundos-estruturados/${id}/serie-historica`);
     return response.data
 };
 

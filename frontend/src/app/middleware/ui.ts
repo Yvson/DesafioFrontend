@@ -1,16 +1,17 @@
-import { PAGE_LOADED } from "../action/ui";
-import { loadFunds, loadFundInfo }  from '../slice/fundsSlice';
+import { PAGE_FUNDS_LOADED, PAGE_FUND_LOADED, PAGE_HISTORICAL_DATA_LOADED } from "../action/ui";
+import { loadFunds, loadFundInfo, loadHistoricalData }  from '../slice/fundsSlice';
 
 
 export const pageLoadedFlow = (store:any) => (next:any) => (action:any) => {
 
-
-    if (action.type === PAGE_LOADED) {
-        if (action.payload.fundId) {
+    switch (action.type) {
+        case PAGE_FUNDS_LOADED:
+            return store.dispatch(loadFunds({status: 'loading'}));
+        case PAGE_FUND_LOADED:
             return store.dispatch(loadFundInfo({status: 'loading', fundId:action.payload.fundId}));
-        }
-        return store.dispatch(loadFunds({status: 'loading'}));
-    }    
+        case PAGE_HISTORICAL_DATA_LOADED:
+            return store.dispatch(loadHistoricalData({status: 'loading', fundId:action.payload.fundId}));
+    }
 
     let result = next(action);
 

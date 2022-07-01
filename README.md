@@ -29,7 +29,7 @@ Desenvolver um aplicativo web utilizando React que disponibiliza uma lista conte
 
 - Lista com os fundos estruturados - CONCLUÍDO
 - Lista com detalhes de um fundo estruturado específico - CONCLUÍDO
-- Gráfico com valores das cotas de um fundo ao longo do tempo - NÃO CONCLUÍDO
+- Gráfico com valores das cotas de um fundo ao longo do tempo - CONCLUÍDO APÓS O PRAZO.
 
 
 ## Arquitetura da Aplicação

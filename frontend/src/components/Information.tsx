@@ -2,19 +2,17 @@
 import { useEffect } from 'react'
 
 // Material UI
-import { Box, Typography, Grid, Breadcrumbs, Divider } from '@mui/material';
+import { Box, Typography, Grid, Breadcrumbs, Divider, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import CircularProgress from '@mui/material/CircularProgress';
 import Link from '@mui/material/Link';
 
 // React Router
-import { 
-    useParams
-} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { pageLoaded, setLoadingOn } from '../app/slice/uiSlice';
+import { pageFundLoaded } from '../app/slice/uiSlice';
 
 // Utils
 import { toCurrency } from '../utils/fundsUtils';
@@ -59,7 +57,7 @@ export default function Information(props:any) {
     const loadingFundInfo = useSelector((state:any) => state.ui.loadingFundInfo);
     
     useEffect(() => {
-        dispatch(pageLoaded({fundId: fundId}));
+        dispatch(pageFundLoaded({fundId: fundId}));
     }, [dispatch]);
     
     return (
@@ -121,7 +119,8 @@ export default function Information(props:any) {
                                 width='100%'
                                 paddingTop={4}
                                 >
-                                <Typography variant="h6" sx={{ fontWeight:'600', fontSize:20, color:"#2B3846" }}>Dados Cadastrais</Typography>
+                                <Button variant="outlined" href={`/historical-data/${fundId}`}>Historical Data</Button>
+                                <Typography variant="h6" sx={{ fontWeight:'600', fontSize:20, color:"#2B3846", paddingTop:1 }}>Dados Cadastrais</Typography>
                                 <Grid container spacing={3} paddingTop={1} columns={{ xs: 6 }}>
                                     <Grid item xs={6}>
                                         <Box display='flex' flex='row'>

@@ -6,12 +6,14 @@ import { createSlice } from '@reduxjs/toolkit';
 export interface Ui {
     loading: boolean
     loadingFundInfo: boolean
+    loadingHistoricalData: boolean
     status: string
 }
 
 const initialState: Ui = {
   loading: true,
   loadingFundInfo: true,
+  loadingHistoricalData: true,
   status: '',
 }
 
@@ -35,13 +37,38 @@ export const uiSlice = createSlice({
       state.loadingFundInfo = action.payload.loading;
       state.status = action.type;
     },
-    pageLoaded: (state, action) => {
+    setLoadingHistoricalDataOn: (state, action) => {
+      state.loadingHistoricalData = action.payload.loading;
+      state.status = action.type;
+    },
+    setLoadingHistoricalDataOff: (state, action) => {
+      state.loadingHistoricalData = action.payload.loading;
+      state.status = action.type;
+    },
+    pageFundsLoaded: (state, action) => {
         state.status = action.type;
-    }
+    },
+    pageFundLoaded: (state, action) => {
+      state.status = action.type;
+    },
+    pageHistoricalDataLoaded: (state, action) => {
+      state.status = action.type;
+    },
+
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setLoadingOn, setLoadingOff, pageLoaded, setLoadingFundInfoOn, setLoadingFundInfoOff } = uiSlice.actions
+export const { 
+  setLoadingOn,
+  setLoadingOff,
+  pageFundsLoaded,
+  pageFundLoaded,
+  pageHistoricalDataLoaded,
+  setLoadingFundInfoOn,
+  setLoadingFundInfoOff,
+  setLoadingHistoricalDataOn,
+  setLoadingHistoricalDataOff
+ } = uiSlice.actions
 
 export default uiSlice.reducer

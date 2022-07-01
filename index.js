@@ -3,7 +3,6 @@ const { getAllFunds, getFundById, getHistoricalDataFundById } = require('./servi
 const path = require('path');
 const express = require("express");
 
-
 const PORT = process.env.PORT || 5000;
 
 const app = express();
@@ -20,6 +19,11 @@ app.get('/api/funds', async (req, res) => {
 app.get('/api/funds/:fundId', async (req, res) => {
   let fund = await getFundById(req.params.fundId);
   return res.json(fund);
+});
+
+app.get('/api/funds/historicaldata/:fundId', async (req, res) => {
+  let historicalData = await getHistoricalDataFundById(req.params.fundId);
+  return res.json(historicalData);
 });
 
 
