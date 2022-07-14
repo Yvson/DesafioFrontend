@@ -17,7 +17,6 @@ Este projeto é resultado da solução de um desafio para construir uma aplicaç
 
 ### Hospedagem
 - Heroku em https://desafiofunds.herokuapp.com/
-- Railway.app em https://desafiofunds.up.railway.app/
 
 
 ## O Desafio
